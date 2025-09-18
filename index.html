@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreametech Каталог</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <header class="header">
+            <h1>🤖 Dreametech Каталог</h1>
+            <p>Выберите категорию для просмотра товаров</p>
+        </header>
+
+        <!-- Поиск -->
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="🔍 Поиск по модели..." class="search-input">
+            <button id="searchBtn" class="search-btn">Найти</button>
+        </div>
+
+        <!-- Категории -->
+        <div class="categories-section" id="categoriesSection">
+            <h2>📂 Категории товаров</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Категории будут загружены динамически -->
+            </div>
+        </div>
+
+        <!-- Товары -->
+        <div class="products-section" id="productsSection" style="display: none;">
+            <div class="products-header">
+                <button id="backBtn" class="back-btn">← Назад к категориям</button>
+                <h2 id="categoryTitle">Товары</h2>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Товары будут загружены динамически -->
+            </div>
+        </div>
+
+        <!-- Детали товара -->
+        <div class="product-details" id="productDetails" style="display: none;">
+            <div class="product-header">
+                <button id="backToProductsBtn" class="back-btn">← К товарам</button>
+                <h2 id="productTitle">Детали товара</h2>
+            </div>
+            <div class="product-info" id="productInfo">
+                <!-- Информация о товаре будет загружена динамически -->
+            </div>
+        </div>
+
+        <!-- Загрузка -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Загрузка...</p>
+        </div>
+
+        <!-- Ошибка -->
+        <div class="error" id="error" style="display: none;">
+            <p>❌ Произошла ошибка при загрузке данных</p>
+            <button onclick="location.reload()">Попробовать снова</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

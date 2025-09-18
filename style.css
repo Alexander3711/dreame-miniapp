@@ -1,0 +1,445 @@
+/* Основные стили для Telegram Mini App (Dreame: Black & Gold) */
+
+:root {
+    --dreame-bg: #0b0b0b;
+    --dreame-card: #141414;
+    --dreame-text: #f5f5f5;
+    --dreame-muted: #bfbfbf;
+    --dreame-gold: #d4af37;
+    --dreame-gold-2: #b98b12;
+    --dreame-border: rgba(212, 175, 55, 0.28);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--tg-theme-bg-color, var(--dreame-bg));
+    color: var(--tg-theme-text-color, var(--dreame-text));
+    line-height: 1.6;
+    padding: 16px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Заголовок */
+.header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 20px;
+    background: linear-gradient(135deg, #000000 0%, var(--dreame-gold) 100%);
+    border-radius: 16px;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #000;
+    font-weight: 700;
+}
+
+.header p {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Поиск */
+.search-section {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 8px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid var(--dreame-border);
+    border-radius: 12px;
+    font-size: 16px;
+    background: var(--dreame-card);
+    color: var(--dreame-text);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--dreame-gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.search-btn {
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--dreame-gold) 0%, var(--dreame-gold-2) 100%);
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.search-btn:hover {
+    opacity: 0.9;
+}
+
+/* Секции */
+.categories-section, .products-section, .product-details {
+    margin-bottom: 24px;
+}
+
+.categories-section h2, .products-section h2, .product-details h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--tg-theme-text-color, var(--dreame-text));
+}
+
+/* Сетка категорий */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.category-card {
+    background: var(--dreame-card);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--dreame-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+    border-color: var(--dreame-gold);
+}
+
+.category-card .emoji {
+    font-size: 40px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.category-card .name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dreame-text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.category-card .count {
+    font-size: 14px;
+    color: var(--dreame-gold);
+    font-weight: 600;
+}
+
+/* Сетка товаров */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.product-card {
+    background: var(--dreame-card);
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--dreame-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+    border-color: var(--dreame-gold);
+}
+
+.product-card .name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dreame-text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.product-card .price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dreame-gold);
+    margin-bottom: 10px;
+}
+
+.product-card .description {
+    font-size: 14px;
+    color: var(--dreame-muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Детали товара */
+.product-info {
+    background: var(--dreame-card);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid var(--dreame-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-info .name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dreame-text);
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.product-info .price {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dreame-gold);
+    margin-bottom: 20px;
+}
+
+.product-info .description {
+    font-size: 18px;
+    color: var(--dreame-text);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.product-info .specifications {
+    margin-bottom: 20px;
+}
+
+.product-info .specifications h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dreame-text);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--dreame-gold);
+}
+
+.product-info .spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background-color 0.2s ease;
+}
+
+.product-info .spec-item:hover {
+    background-color: rgba(212, 175, 55, 0.06);
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.product-info .spec-item:last-child {
+    border-bottom: none;
+}
+
+.product-info .spec-key {
+    font-weight: 700;
+    color: var(--dreame-text);
+    font-size: 16px;
+}
+
+.product-info .spec-value {
+    color: var(--dreame-gold);
+    text-align: right;
+    max-width: 60%;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.product-info .url {
+    margin-top: 20px;
+}
+
+.product-info .url a {
+    display: inline-block;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--dreame-gold) 0%, var(--dreame-gold-2) 100%);
+    color: #000000;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.product-info .url a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Кнопки навигации */
+.back-btn {
+    background: var(--dreame-card);
+    color: var(--dreame-text);
+    border: 2px solid var(--dreame-border);
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.back-btn:hover {
+    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--dreame-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+/* Загрузка */
+.loading {
+    text-align: center;
+    padding: 60px;
+    background: var(--dreame-card);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255,255,255,0.08);
+    border-top: 4px solid var(--dreame-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: var(--dreame-gold);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Ошибка */
+.error {
+    text-align: center;
+    padding: 60px;
+    background: var(--dreame-card);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    color: #dc3545;
+}
+
+.error h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #dc3545;
+}
+
+.error p {
+    font-size: 16px;
+    margin-bottom: 24px;
+    color: #666666;
+}
+
+.error button {
+    margin-top: 20px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--dreame-gold) 0%, var(--dreame-gold-2) 100%);
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+.error button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+    body {
+        padding: 24px;
+    }
+    .container {
+        max-width: 1100px;
+    }
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+    }
+    .category-card {
+        padding: 28px;
+    }
+    .product-card {
+        padding: 24px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1280px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(3, minmax(320px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-section {
+        flex-direction: column;
+    }
+    
+    .search-btn {
+        width: 100%;
+    }
+}
+
+/* Убираем системную инверсию: используем свои переменные, подхватывая Telegram-переменные через fallback выше */
