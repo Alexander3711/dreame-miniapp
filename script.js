@@ -1,5 +1,7 @@
 // JavaScript для Telegram Mini App
 
+const API_BASE = 'https://b6f1b3153b6f.ngrok-free.app';
+
 class DreametechApp {
     constructor() {
         this.categories = {
@@ -55,7 +57,7 @@ class DreametechApp {
             this.showLoading();
             
             // Загружаем статистику по категориям
-            const response = await fetch('https://b6f1b3153b6f.ngrok-free.app/api/categories');
+            const response = await fetch(`${API_BASE}/api/categories`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -102,7 +104,7 @@ class DreametechApp {
             this.showLoading();
             this.currentCategory = categoryKey;
             
-            const response = await fetch(`https://b6f1b3153b6f.ngrok-free.app/api/products?category=${categoryKey}`);
+            const response = await fetch(`${API_BASE}/api/products?category=${categoryKey}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -156,7 +158,7 @@ class DreametechApp {
             this.currentProduct = product;
             
             // Загружаем полную информацию о товаре
-            const response = await fetch(`https://b6f1b3153b6f.ngrok-free.app/api/product/${encodeURIComponent(product.name)}`);
+            const response = await fetch(`${API_BASE}/api/product/${encodeURIComponent(product.name)}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -229,7 +231,7 @@ class DreametechApp {
         try {
             this.showLoading();
             
-            const response = await fetch(`https://b6f1b3153b6f.ngrok-free.app/api/search?q=${encodeURIComponent(query)}`);
+            const response = await fetch(`${API_BASE}/api/search?q=${encodeURIComponent(query)}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -347,7 +349,7 @@ class DreametechApp {
 
     async fetchProductImage(name, category) {
         try {
-            const url = new URL('https://b6f1b3153b6f.ngrok-free.app/api/product-image');
+            const url = new URL(`${API_BASE}/api/product-image`);
             url.searchParams.set('name', name);
             if (category) url.searchParams.set('category', category);
             const res = await fetch(url.toString());
